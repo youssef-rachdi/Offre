@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Offre.Models.Category>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1 class="col-md-12">Bienvenue sur le site de l'emploi</h1>
+</div>
+
+
+@foreach (var item in Model)
+{
+    <h3>@Html.DisplayFor(modelItem => item.CategoryName)</h3>
+    <p>@Html.DisplayFor(modelItem => item.CatregoryDescription)</p>
+
+    <section>
+        <div class="container_job">
+            <div class="row">
+                @foreach (var subItem in item.Jobs)
+                {
+                    <div class="col-md-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="~/Uploads/@subItem.JobImage" class="card-img-top" alt="Image">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => subItem.JobTitle)</h5>
+                                <p class="card-text">
+                                    @Html.DisplayFor(modelItem => subItem.JobContent)
+                                </p>
+                                <a href="#" class="btn btn-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+}

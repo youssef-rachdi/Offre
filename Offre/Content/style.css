@@ -1,0 +1,70 @@
+#navbar {
+    background-color: #1d83b0;
+}
+
+#first {
+    margin-left: 20px;
+}
+
+li {
+    padding-left: 40px;
+}
+
+#login_nav {
+    padding-right: 10px;
+}
+
+a {
+    background-color: rgb(201, 201, 201);
+    border-radius: 5px;
+}
+
+.row {
+    padding: 30px;
+}
+
+section {
+    min-height: 30em;
+    margin-top: 100px;
+}
+
+    section .col-md-3 {
+        padding: 30px;
+    }
+
+footer .col-md-3 {
+    padding: 15px;
+}
+
+div .nav-item {
+    margin-top: 2px;
+}
+
+footer .col-md-3 a {
+    color: white;
+    background-color: #1d83b0;
+}
+
+
+footer #contact i {
+    margin-right: 15px;
+}
+
+footer li {
+    list-style: none;
+}
+
+#copyrghit {
+    height: 30px;
+    background-color: #94e4ff;
+    width: 100%;
+    align-items: center;
+}
+
+
+.mayactionlink{
+    height:20px;
+    width:15px;
+    background-color:papayawhip;
+    color:black;
+}

@@ -3,8 +3,19 @@
     ViewBag.Title = "Home Page";
 }
 
+<style>
+    #h1{
+        padding:32px;
+        background-color:deepskyblue;
+        margin:20px 0px 40px 0px;
+        display:flex;
+        
+        justify-content:center;
+    }
+
+</style>
 <div class="jumbotron">
-    <h1 class="col-md-12">Bienvenue sur le site de l'emploi</h1>
+    <h1 class="col-md-12" id="h1">Bienvenue sur le platform de l'offre d'emploi</h1>
 </div>
 
 
@@ -26,7 +37,7 @@
                                 <p class="card-text">
                                     @Html.DisplayFor(modelItem => subItem.JobContent)
                                 </p>
-                                <a href="#" class="btn btn-primary">Details</a>
+                                @Html.ActionLink("détails", "Details", new { jobid = subItem.Id }, new { style = "background-color:#2977ff; text-decoration:none; padding:4px 15px 4px 15px;color:white;" })
                             </div>
                         </div>
                     </div>

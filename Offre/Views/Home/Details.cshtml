@@ -5,9 +5,10 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
+<h2>Les details de L'offre</h2>
 
 <div>
-    <h4>les Details de l'offre</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -45,6 +46,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Postuler", "ApplyJob", new { id = Model.Id }, new { style = "background-color:green; text-decoration:none; padding:4px;color:white;" }) 
+    @Html.ActionLink("Reteur", "Index",null, new { style = "background-color:black; text-decoration:none; padding:4px;color:white;" })
 </p>

@@ -1,0 +1,52 @@
+﻿@model Offre.Models.ApplyForJob1
+
+@{
+    ViewBag.Title = "ApplyJob";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>ApplyJob</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        
+        <div>
+            @if (ViewBag != null)
+            {
+
+                if (ViewBag.Result == "Vous avez postulé avec succès pour cette offre")
+                {
+                    <p style="color:green">@ViewBag.Result</p>
+                }
+                else
+                {
+                    <p style="color:red">@ViewBag.Result</p>
+                }
+            }
+
+        </div>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Message", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextArea("Message", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

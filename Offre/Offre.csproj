@@ -200,8 +200,17 @@
     <Compile Include="Migrations\202204070004451_AddJobTable.Designer.cs">
       <DependentUpon>202204070004451_AddJobTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205151807484_ApplyJob.cs" />
+    <Compile Include="Migrations\202205151807484_ApplyJob.Designer.cs">
+      <DependentUpon>202205151807484_ApplyJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205151829219_ApplyJobs.cs" />
+    <Compile Include="Migrations\202205151829219_ApplyJobs.Designer.cs">
+      <DependentUpon>202205151829219_ApplyJobs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplyForJob1.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Job.cs" />
@@ -259,6 +268,8 @@
     <Content Include="Views\Roles\Details.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\ApplyJob.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -282,6 +293,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204070004451_AddJobTable.resx">
       <DependentUpon>202204070004451_AddJobTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205151807484_ApplyJob.resx">
+      <DependentUpon>202205151807484_ApplyJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205151829219_ApplyJobs.resx">
+      <DependentUpon>202205151829219_ApplyJobs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

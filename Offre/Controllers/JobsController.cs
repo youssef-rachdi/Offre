@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Offre.Controllers
 {
-    [Authorize(Roles ="Recruteur")]
+    [Authorize(Roles ="Recruteur,Admins")]
     public class JobsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

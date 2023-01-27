@@ -5,47 +5,86 @@
 
 
 
+
+
+<style>
+    .gradient-custom {
+        /* fallback for old browsers */
+        background: #6a11cb;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    }
+
+    section {
+        background-color: white;
+    }
+</style>
+
+
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Créer un nouveau compte</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+
+
+    <section style="margin-top:-50px;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-primary text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+
+                            <div class="mb-md-5 mt-md-4 pb-5">
+
+                                <h2 class="fw-bold mb-2 text-uppercase">Sign up</h2>
+                                <p class="text-white-50 mb-5">Please enter your login and password!</p>
+
+                                <div class="form-outline form-white mb-4">
+                                    
+                                    @Html.TextBoxFor(m => m.UserName, new {@id = "typeEmailX", @class="form-control", @placeholder = "Nom" })
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                  
+                                    
+                                    @Html.DropDownList("UserType", null, new {@id = "typeEmailX", @class="form-control", @placeholder = "Type" })
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                   
+                                    
+                                    @Html.TextBoxFor(m => m.Email, new { @type = "email", @id = "typeEmailX", @class="form-control form-control-lg",@placeholder="Email Adress" })
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                    
+                                    @Html.PasswordFor(m => m.Password, new { @type = "password", @id = "typePasswordX", @class="form-control", @placeholder = "Mot de passe" })
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                    
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @type = "password", @id = "typePasswordX", @class="form-control", @placeholder= "Confirmer mot de passe" })
+                                </div>
+
+                                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">creer mon compte</button>
+
+
+
+                            </div>
+
+                            <div>
+                                <p class="mb-0">
+                                    deja ? @Html.ActionLink("Connexion", "Login", "Account", null, new { @style = "text-decoration:none; color:white;background-color:none;" })
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.UserType, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.DropDownList("UserType",null,new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Je crée mon compte" style="background-color: #1d83b0; margin-top: 10px" />
-        </div>
-    </div>
+    </section>
 }
-
-

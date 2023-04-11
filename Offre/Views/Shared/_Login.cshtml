@@ -1,4 +1,12 @@
-﻿ @using Microsoft.AspNet.Identity
+﻿<style>
+    .navbar-light .navbar-nav .nav-link {
+        background-color: #333!important;
+        color: #ffffff!important;
+    }
+</style>
+
+@using Microsoft.AspNet.Identity
+
 
 @if (Request.IsAuthenticated)
 {
@@ -8,7 +16,7 @@
         <ul id="login_nav" class="nav navbar-nav navbar-right">
             <li style="margin-top:10px" class="nav-item">
                 
-                @Html.ActionLink("Bonjour " + User.Identity.GetUserName(), "Index", "Manage", new { style = "background-color:bleu; text-decoration:none; padding:10px;color:black;" })
+                @Html.ActionLink("Bonjour " + User.Identity.GetUserName(), "Index", "Manage", new { style = "background-color:bleu; text-decoration:none; padding:10px;color:black; background-color: #333!important; color: #ffffff!important;" })
                 <i class="bi bi-person-check"></i>
             </li>
             <li class="nav-item">

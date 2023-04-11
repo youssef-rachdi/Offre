@@ -57,6 +57,7 @@ namespace Offre.Controllers
             {
                 string path = Path.Combine(Server.MapPath("~/Uploads"), Upload.FileName);
                 Upload.SaveAs(path);
+
                 job.JobImage = Upload.FileName;
                 db.Jobs.Add(job);
                 db.SaveChanges();

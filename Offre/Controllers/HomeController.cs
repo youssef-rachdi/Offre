@@ -2,10 +2,12 @@
 using Offre.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication2.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WebApplication2.Controllers
 {
@@ -33,16 +35,28 @@ namespace WebApplication2.Controllers
         }
 
         [HttpPost]
-        public ActionResult ApplyJob(string Message)
+        public ActionResult ApplyJob(string Message, HttpPostedFileBase UploadFile)
         {
             var UserId = User.Identity.GetUserId();
             var JobId = (int)Session["Jobid"];
+
+            var job = new ApplyForJob1();
+            
 
             var check = db.ApplyForJob1.Where(a => a.Jobid == JobId & a.Userid == UserId).ToList();
 
             if (check.Count < 1)
             {
-                var job = new ApplyForJob1();
+                /////////////////////////////
+                if (UploadFile != null)
+                {
+                    var fileName = Path.GetFileName(UploadFile.FileName);
+                    var path = Path.Combine(Server.MapPath("~/UploadFile"), UploadFile.FileName);
+                    UploadFile.SaveAs(path);
+                    job.UploadFile = fileName;
+
+                }
+                ///////////////////////////
 
                 job.Userid = UserId;
                 job.Message = Message;
@@ -56,6 +70,7 @@ namespace WebApplication2.Controllers
             {
                 ViewBag.Result = "Désolé, j'ai déjà postulé pour cette offre";
             }
+            
             return View();
         }
 

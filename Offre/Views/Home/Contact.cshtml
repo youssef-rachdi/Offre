@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
+@*<h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <address>
@@ -14,4 +14,224 @@
 <address>
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+</address>*@
+
+<style>
+    :root {
+        --primary-color: #fbb034;
+        --secondary-color: #00a4f5;
+        --bg-color: #fff;
+        --heading-color: #060606;
+        --font-color: #6f6f6f;
+        --border-radius: 8px;
+        --border-radius-full: 30px;
+        --border-color-light: #eee;
+        --iframe-filter: grayscale(0%);
+        --bg-grey: #f4f4f4;
+        --bg-light: #fbfbfb;
+        --box-shadow: 0 0.5rem 1rem rgb(12 12 12 / 5%);
+        --banner-layer: rgb(255 255 255 / 90%);
+        --gradient-color: linear-gradient(to left, #11d5ff 0%, #0089cd 100%);
+        --gradient-color-banner: linear-gradient(to left, #00c9f5 0%, #00a4f5 100%);
+        --layer: rgb(1 121 179 / 75%);
+        --subscribe-footer-input: #fff;
+    }
+
+
+    .contact-block input,
+    .contact-block textarea {
+        width: 100%;
+        color: #060606;
+        background: #f4f4f4;
+        font-size: 16px;
+        padding: 14px;
+        border: 2px solid #eee;
+        outline: none;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .cont-left.text-center i {
+        color: #00a4f5;
+        font-size: 26px;
+    }
+
+    .contact-block textarea {
+        height: 180px;
+        margin: 0 0 20px 0;
+    }
+
+        .contact-block input:focus,
+        .contact-block textarea:focus {
+            border: 2px solid #00a4f5;
+            background: #fff;
+        }
+
+    .contact-left {
+        box-shadow: 0 0.5rem 1rem rgb(12 12 12 / 5%);
+        padding: 40px;
+    }
+
+    .cont-details p a:hover {
+        color: #00a4f5;
+    }
+
+    .cont-details h6 {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 18px;
+        margin-bottom: 8px;
+    }
+
+    .map iframe {
+        -webkit-filter: grayscale(0%);
+        -moz-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+        -o-filter: grayscale(0%);
+        filter: grayscale(0%);
+    }
+
+
+
+
+    .w3l-team-13 .left-side h4 {
+  font-size: 22px;
+  line-height: 32px;
+  margin-top: 15px;
+  font-weight: bold;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+
+    .image-one:hover h4 {
+        color: #00a4f5;
+        transition: .3s;
+        -webkit-transition: .3s;
+        -moz-transition: .3s;
+        -ms-transition: .3s;
+        -o-transition: .3s;
+    }
+
+    .w3l-team-13 img {
+        transition: .3s;
+        background: #f4f4f4;
+        border-radius: 8px 8px 0 0;
+    }
+
+        .w3l-team-13 img:hover {
+            transition: .3s;
+            background: #00a4f5;
+        }
+
+    .w3l-team-13 .image-one {
+        box-shadow: 0 0.5rem 1rem rgb(12 12 12 / 5%);
+        padding-bottom: 15px;
+    }
+
+.w3l-team-13 .buttons-teams2 a i {
+  font-size: 24px;
+  margin: 0 3px;
+}
+
+.w3l-team-13 .buttons-teams2 a .fa-facebook-square {
+  color: #3b5998;
+}
+
+.w3l-team-13 .buttons-teams2 a .fa-twitter-square {
+  color: #00acee;
+}
+
+.w3l-team-13 .buttons-teams2 a .fa-google-plus-square {
+  color: #DD4B39;
+}
+
+@@media (max-width: 480px) {
+  .w3l-team-13 .left-side h4 {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+</style>
+
+<section class="w3l-contact py-5" id="contact">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <p class="text-uppercase">Get In Touch</p>
+            <h3 class="title-style">Contact Us</h3>
+        </div>
+        <div class="row contact-block">
+            <div class="col-md-7 contact-right">
+                <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+                    <div class="input-grids">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="text" name="w3lName" id="w3lName" placeholder="Your Name"
+                                       class="contact-input" required="" />
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="email" name="w3lSender" id="w3lSender" placeholder="Your Email"
+                                       class="contact-input" required="" />
+                            </div>
+                        </div>
+                        <input type="text" name="w3lSubect" id="w3lSubect" placeholder="Subject"
+                               class="contact-input" required="" />
+                        <!-- <input type="text" name="w3lWebsite" id="w3lWebsite" placeholder="Website URL"
+                            class="contact-input" required="" /> -->
+                    </div>
+                    <div class="form-input">
+                        <textarea name="w3lMessage" id="w3lMessage" placeholder="Type your message here"
+                                  required=""></textarea>
+                    </div>
+                    <div class="text-start">
+                        <button class="btn btn-style btn-style-3">Send Message</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5 ps-lg-5 mt-md-0 mt-5">
+                <div class="contact-left">
+                    <div class="cont-details">
+                        <div class="d-flex contact-grid">
+                            <div class="cont-left text-center me-3">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="cont-right">
+                                <h6>Company Address</h6>
+                                <p>Licda, Rabar Morocco G2 </p>
+                            </div>
+                        </div>
+                        <div class="d-flex contact-grid mt-4 pt-lg-2">
+                            <div class="cont-left text-center me-3">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="cont-right">
+                                <h6>Call Us</h6>
+                                <p><a href="tel:+212616495412">+212 616 495 412</a></p>
+                            </div>
+                        </div>
+                        <div class="d-flex contact-grid mt-4 pt-lg-2">
+                            <div class="cont-left text-center me-3">
+                                <i class="fas fa-envelope-open-text"></i>
+                            </div>
+                            <div class="cont-right">
+                                <h6>Email Us</h6>
+                                <p><a href="mailto:rachdiy03@gmail.com" class="mail">rachdiy03@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="d-flex contact-grid mt-4 pt-lg-2">
+                            <div class="cont-left text-center me-3">
+                                <i class="fas fa-headphones-alt"></i>
+                            </div>
+                            <div class="cont-right">
+                                <h6>Customer Support</h6>
+                                <p><a href="mailto:rachdiy03@gmail.com" class="mail">Offre@support.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

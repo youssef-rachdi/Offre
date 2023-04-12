@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
 using Offre.Models;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication2.Models;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace WebApplication2.Controllers
 {

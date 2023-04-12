@@ -7,7 +7,7 @@
 
 
 
-<style>
+@*<style>
     .gradient-custom {
         /* fallback for old browsers */
         background: #6a11cb;
@@ -20,10 +20,10 @@
     section {
         background-color: white;
     }
-</style>
+</style>*@
 
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@*@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
 
@@ -41,30 +41,30 @@
                                 <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
                                 <div class="form-outline form-white mb-4">
-                                    
-                                    @Html.TextBoxFor(m => m.UserName, new {@id = "typeEmailX", @class="form-control", @placeholder = "Nom" })
+
+                                    @Html.TextBoxFor(m => m.UserName, new { @id = "typeEmailX", @class = "form-control", @placeholder = "Nom" })
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
-                                  
-                                    
-                                    @Html.DropDownList("UserType", null, new {@id = "typeEmailX", @class="form-control", @placeholder = "Type" })
+
+
+                                    @Html.DropDownList("UserType", null, new { @id = "typeEmailX", @class = "form-control", @placeholder = "Type" })
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
-                                   
-                                    
-                                    @Html.TextBoxFor(m => m.Email, new { @type = "email", @id = "typeEmailX", @class="form-control form-control-lg",@placeholder="Email Adress" })
+
+
+                                    @Html.TextBoxFor(m => m.Email, new { @type = "email", @id = "typeEmailX", @class = "form-control form-control-lg", @placeholder = "Email Adress" })
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
-                                    
-                                    @Html.PasswordFor(m => m.Password, new { @type = "password", @id = "typePasswordX", @class="form-control", @placeholder = "Mot de passe" })
+
+                                    @Html.PasswordFor(m => m.Password, new { @type = "password", @id = "typePasswordX", @class = "form-control", @placeholder = "Mot de passe" })
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
-                                    
-                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @type = "password", @id = "typePasswordX", @class="form-control", @placeholder= "Confirmer mot de passe" })
+
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @type = "password", @id = "typePasswordX", @class = "form-control", @placeholder = "Confirmer mot de passe" })
                                 </div>
 
                                 <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
@@ -87,4 +87,159 @@
             </div>
         </div>
     </section>
-}
+}*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Login_v3/Login_v3/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login_v3/Login_v3/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login_v3/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login_v3/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login_v3/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login_v3/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login_v3/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login_v3/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login_v3/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login_v3/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Login_v3/css/main.css">
+    <style>
+        #dropdown {
+            background-color: transparent !important;
+            color: #000000;
+            border: none;
+            outline: none;
+        }
+    </style>
+    <!--===============================================================================================-->
+</head>
+<body>
+
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="limiter">
+            <div class="container-login100" style="background-image: url('~/Login_v3/images/bg-01.jpg');">
+                <div class="wrap-login100">
+                    <form class="login100-form validate-form">
+                        <span class="login100-form-logo">
+                            <i class="zmdi zmdi-landscape"></i>
+                        </span>
+
+                        <span class="login100-form-title p-b-34 p-t-27">
+                            Log in
+                        </span>
+
+                        <div class="wrap-input100 validate-input" data-validate="Enter username">
+                            @Html.TextBoxFor(m => m.UserName, new { @type = "text", @name = "username", @class = "input100", @placeholder = "Nom" })
+                            @*<input class="input100" type="text" name="username" placeholder="Username">*@
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Enter username">
+                            @Html.DropDownList("UserType", null, new { @class = "input100", @id = "dropdown", @placeholder = "Type" })
+
+                            @*<input class="input100" type="password" name="pass" placeholder="Password">*@
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Enter username">
+                            @Html.TextBoxFor(m => m.Email, new { @type = "text", @class = "input100", @placeholder = "Email" })
+                            <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            @Html.PasswordFor(m => m.Password, new { @class = "input100", @type = "password", @placeholder = "Mot de passe" })
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input100", @type = "password", @placeholder = "Confirmer mot de passe" })
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+                            <div class="contact100-form-checkbox">
+                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                                <label class="label-checkbox100" for="ckb1">
+                                    Remember me
+                                </label>
+                            </div>
+
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn">
+                                    Register
+                                </button>
+                            </div>
+
+                            <div class="text-center p-t-90">
+                                <a class="txt1" href="">
+                                    don't have account? @Html.ActionLink("Connexion", "Login", "Account", null, new { @style = "text-decoration:none; color:white; background-color:transparent;" })
+                                </a>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    }
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/Login_v3/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login_v3/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login_v3/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Login_v3/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login_v3/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login_v3/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Login_v3/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login_v3/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login_v3/js/main.js"></script>
+
+</body>
+</html>

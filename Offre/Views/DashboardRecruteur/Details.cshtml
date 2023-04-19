@@ -1,0 +1,248 @@
+﻿@model Offre.Models.Job
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+@*<div>
+        <h4>les Details de l'offre</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.CategoryName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.CategoryName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.JobTitle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.JobContent)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.JobContent)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.JobImage)
+            </dt>
+
+            <dd>
+                <img src="~/Uploads/@Html.DisplayFor(Model=>Model.JobImage)" style="width:200px;height:200px" />
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+
+
+
+
+    <style>
+        @@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        .img-display {
+            overflow: hidden;
+        }
+
+        
+
+           
+
+        .product-content {
+            padding: 2rem 1rem;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            text-transform: capitalize;
+            font-weight: 700;
+            position: relative;
+            color: #12263a;
+            margin: 1rem 0;
+        }
+
+            .product-title::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 4px;
+                width: 80px;
+                background: #12263a;
+            }
+
+        .product-link {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            background: #256eff;
+            color: #fff;
+            padding: 0 0.3rem;
+            transition: all 0.5s ease;
+        }
+
+            .product-link:hover {
+                opacity: 0.9;
+            }
+
+            
+
+
+        .product-detail h3 {
+            text-transform: capitalize;
+            color: #12263a;
+            padding-bottom: 0.6rem;
+        }
+
+        .product-detail h4 {
+            padding: 0.3rem;
+            opacity: 0.8;
+
+        }
+
+        .product-detail ul {
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+            .product-detail ul li {
+                margin: 0;
+                list-style: none;
+                background: url(https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/checked.png) left center no-repeat;
+                background-size: 18px;
+                padding-left: 1.7rem;
+                margin: 0.4rem 0;
+                font-weight: 600;
+                opacity: 0.9;
+            }
+
+                .product-detail ul li span {
+                    font-weight: 400;
+                }
+
+        .purchase-info {
+            margin: 1.5rem 0;
+        }
+
+            .purchase-info .btn {
+                border: 1.5px solid #ddd;
+                border-radius: 25px;
+                text-align: center;
+                padding: 0.45rem 0.8rem;
+                outline: 0;
+                margin-right: 0.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .purchase-info .btn {
+                cursor: pointer;
+                color: #fff;
+            }
+
+                .purchase-info .btn:first-of-type {
+                    background: #256eff;
+                }
+
+                .purchase-info .btn:last-of-type {
+                    background: #f64749;
+                }
+
+                .purchase-info .btn:hover {
+                    opacity: 0.9;
+                }
+
+
+        @@media screen and (min-width: 992px) {
+            .card {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1.5rem;
+            }
+
+            .container {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .product-imgs {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .product-content {
+                padding-top: 0;
+            }
+        }
+    </style>
+
+
+<div class="container">
+    <div class="card">
+        <!-- card left -->
+        <div class="product-imgs">
+            <div class="img-display">
+                <div class="img-showcase">
+                    <img src="~/Uploads/@Html.DisplayFor(Model=>Model.JobImage)" alt="Job image">
+                </div>
+            </div>
+        </div>
+        <!-- card right -->
+        <div class="product-content">
+            <h2 class="product-title">@Html.DisplayFor(model => model.JobTitle)</h2>
+
+
+
+            <div class="product-detail">
+                <h3> Description :</h3>
+                <h4>@Html.DisplayFor(model => model.JobContent)</h4>
+                <ul>
+
+                    <li>@Html.DisplayNameFor(model => model.Category.CategoryName) :<span>@Html.DisplayFor(model => model.Category.CategoryName)</span></li>
+
+                </ul>
+            </div>
+
+            <div class="purchase-info">
+                <button type="button" class="btn">
+                    Download CV<i class="fas fa-shopping-cart"></i>
+                </button>
+                <button type="button" class="btn btn-secondary">back to list</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>

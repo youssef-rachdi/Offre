@@ -6,6 +6,8 @@ namespace Offre.Models
     {
         public int Id { get; set; }
 
+        public string Userid { get; set; }
+
         [DisplayName("Le nom de loffre")]
         public string JobTitle { get; set; }
         

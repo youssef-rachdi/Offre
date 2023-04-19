@@ -1,29 +1,38 @@
-﻿using System.Data.Entity;
+﻿using Offre.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Offre.Models;
 using WebApplication2.Models;
-using System.IO;
-using Microsoft.AspNet.Identity;
 
-namespace Offre.Controllers
+namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
 {
-    public class JobsController : Controller
+    [Authorize(Roles = "Recruteur,Admins")]
+    public class DashboardRecruteurController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        // GET: Recruteur
 
-        // GET: Jobs
-        [Authorize(Roles = "Admins")]
-        public ActionResult Index()
+        public ActionResult home()
         {
-            var jobs = db.Jobs.Include(j => j.Category);
-            return View(jobs.ToList());
+            return View();
         }
 
-        // GET: Jobs/Details/5
-        [Authorize(Roles = "Admins")]
+        public ActionResult Index()
+        {
+            var list = (from jobs in db.Jobs
+                        join user in db.Users
+                        on jobs.Userid equals user.Id
+                        where jobs.Userid == user.Id
+                        select jobs).ToList();
+            return View(list);
+        }
+
+        // GET: Recruteur/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,41 +47,8 @@ namespace Offre.Controllers
             return View(job);
         }
 
-        // GET: Jobs/Create
-        [Authorize(Roles = "Recruteur,Admins")]
-        public ActionResult Create()
-        {
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName");
-            return View();
-        }
 
-        // POST: Jobs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Recruteur,Admins")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Job job, HttpPostedFileBase Upload)
-        {
-            if (ModelState.IsValid)
-            {
-                var UserId = User.Identity.GetUserId();
-                string path = Path.Combine(Server.MapPath("~/Uploads"), Upload.FileName);
-                Upload.SaveAs(path);
-
-                job.Userid= UserId;
-                job.JobImage = Upload.FileName;
-                db.Jobs.Add(job);
-                db.SaveChanges();
-                return RedirectToAction("");
-            }
-
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", job.CategoryId);
-            return View(job);
-        }
-
-        // GET: Jobs/Edit/5
-        [Authorize(Roles = "Admins")]
+        // GET: Recruteur/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,7 +67,6 @@ namespace Offre.Controllers
         // POST: Jobs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admins")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Job job, HttpPostedFileBase Upload)
@@ -99,14 +74,14 @@ namespace Offre.Controllers
             if (ModelState.IsValid)
             {
                 string OldPath = Path.Combine(Server.MapPath("~/Uploads"), job.JobImage);
-                if (Upload !=null)
+                if (Upload != null)
                 {
                     System.IO.File.Delete(OldPath);
                     string path = Path.Combine(Server.MapPath("~/Uploads"), Upload.FileName);
                     Upload.SaveAs(path);
                     job.JobImage = Upload.FileName;
                 }
-                
+
                 db.Entry(job).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -115,8 +90,7 @@ namespace Offre.Controllers
             return View(job);
         }
 
-        // GET: Jobs/Delete/5
-        [Authorize(Roles = "Admins")]
+        // GET: Recruteur/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -132,7 +106,7 @@ namespace Offre.Controllers
         }
 
         // POST: Jobs/Delete/5
-        [Authorize(Roles = "Admins")]
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -141,15 +115,6 @@ namespace Offre.Controllers
             db.Jobs.Remove(job);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

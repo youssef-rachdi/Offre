@@ -1,7 +1,12 @@
 ﻿<style>
     .navbar-light .navbar-nav .nav-link {
-        background-color: #333!important;
-        color: #ffffff!important;
+        background-color: #333 !important;
+        color: #ffffff !important;
+    }
+    #login_nav {
+        justify-content: center;
+        align-items: center;
+        align-content: center;
     }
 </style>
 
@@ -14,16 +19,34 @@
     {
         @Html.AntiForgeryToken()
         <ul id="login_nav" class="nav navbar-nav navbar-right">
-            <li style="margin-top:10px" class="nav-item">
-                
-                @Html.ActionLink("Bonjour " + User.Identity.GetUserName(), "Index", "Manage", new { style = "background-color:bleu; text-decoration:none; padding:10px;color:black; background-color: #333!important; color: #ffffff!important;" })
+            <li class="nav-item">
+
+                @Html.ActionLink("Bonjour " + User.Identity.GetUserName(), "Index", "Manage", new { style = "text-decoration:none; padding:10px; background-color: #333!important; color: #ffffff!important;" })
                 <i class="bi bi-person-check"></i>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="javascript:document.getElementById('Logoff').submit()">déconnexion <i class="bi bi-box-arrow-right"></i></a>
-                
             </li>
+            @if (User.IsInRole("Recruteur"))
+            {
+                <li class="nav-item">
+                    @*@Html.ActionLink("Options", "home", "DashboardRecruteur", new { style = "background-color:bleu; text-decoration:none; padding:10px;color:black; background-color: #333!important; color: #ffffff!important;" })
+                        <img src="~/Image/icons8-admin-settings-male-50.png" />*@
+                    <a href="@Url.Action("home", "DashboardRecruteur")" title="options" class="links" style="text-decoration:none; padding:10px; background-color: #333!important; color: #ffffff!important;">
+                        <img alt="options" src="@Url.Content("~/Image/icons8-admin-settings-male-50.png")" style="height:45px;">
+                    </a>
+                </li>
+            }
+            else if (User.IsInRole("Admins"))
+            {
+                <a href="@Url.Action("", "")" title="options" style="text-decoration:none; padding:10px; background-color: #333!important; color: #ffffff!important;">
+                    <img alt="options" src="@Url.Content("~/Image/icons8-admin-settings-male-50.png")">
+                    Dashboard
+                </a>
+            }
+
         </ul>
+
     }
 }
 else

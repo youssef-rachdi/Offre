@@ -149,6 +149,7 @@
     <Content Include="Global.asax" />
     <Content Include="Image\about2_img.jfif" />
     <Content Include="Image\about_img.jpg" />
+    <Content Include="Image\icons8-admin-settings-male-50.png" />
     <Content Include="Image\img_job.jpg" />
     <Content Include="Image\logo.jfif" />
     <Content Include="Image\logo.png" />
@@ -284,6 +285,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\GstionOffre\GestionRecruteurOffre\DashboardRecruteurController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -318,6 +320,10 @@
     <Compile Include="Migrations\202303182200395_AddFileCV.cs" />
     <Compile Include="Migrations\202303182200395_AddFileCV.designer.cs">
       <DependentUpon>202303182200395_AddFileCV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304121810134_AddUserIdToJobTable.cs" />
+    <Compile Include="Migrations\202304121810134_AddUserIdToJobTable.designer.cs">
+      <DependentUpon>202304121810134_AddUserIdToJobTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -382,6 +388,11 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\ApplyJob.cshtml" />
     <Content Include="Views\Test\FirstPage.cshtml" />
+    <Content Include="Views\DashboardRecruteur\Index.cshtml" />
+    <Content Include="Views\DashboardRecruteur\home.cshtml" />
+    <Content Include="Views\DashboardRecruteur\Details.cshtml" />
+    <Content Include="Views\DashboardRecruteur\Delete.cshtml" />
+    <Content Include="Views\DashboardRecruteur\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -415,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303182200395_AddFileCV.resx">
       <DependentUpon>202303182200395_AddFileCV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304121810134_AddUserIdToJobTable.resx">
+      <DependentUpon>202304121810134_AddUserIdToJobTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

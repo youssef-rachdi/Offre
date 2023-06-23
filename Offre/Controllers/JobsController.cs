@@ -7,6 +7,7 @@ using Offre.Models;
 using WebApplication2.Models;
 using System.IO;
 using Microsoft.AspNet.Identity;
+using System.Web.WebPages;
 
 namespace Offre.Controllers
 {
@@ -52,24 +53,57 @@ namespace Offre.Controllers
         [Authorize(Roles = "Recruteur,Admins")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //public ActionResult Create(Job job, HttpPostedFileBase Upload)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var UserId = User.Identity.GetUserId();
+        //        string path = Path.Combine(Server.MapPath("~/Uploads"), Upload.FileName);
+
+        //        Upload.SaveAs(path);
+
+        //        job.Userid= UserId;
+        //        job.JobImage = Upload.FileName;
+        //        db.Jobs.Add(job);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+
+        //    }
+
+        //    ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", job.CategoryId);
+        //    return View(job);
+        //}
+
+
         public ActionResult Create(Job job, HttpPostedFileBase Upload)
         {
             if (ModelState.IsValid)
             {
                 var UserId = User.Identity.GetUserId();
-                string path = Path.Combine(Server.MapPath("~/Uploads"), Upload.FileName);
-                Upload.SaveAs(path);
 
-                job.Userid= UserId;
-                job.JobImage = Upload.FileName;
+                // Check if a file was uploaded
+                if (Upload != null && Upload.ContentLength > 0)
+                {
+                    string path = Path.Combine(Server.MapPath("~/Uploads"), Upload.FileName);
+                    Upload.SaveAs(path);
+                    job.JobImage = Upload.FileName;
+                }
+                else
+                {
+                    // If no file was uploaded, set a default image path
+                    job.JobImage = "offredemploi_.jpg"; // Replace "default_image.jpg" with the path of your default image
+                }
+
+                job.Userid = UserId;
                 db.Jobs.Add(job);
                 db.SaveChanges();
-                return RedirectToAction("");
+                return RedirectToAction("Index","Home");
             }
 
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", job.CategoryId);
             return View(job);
         }
+
 
         // GET: Jobs/Edit/5
         [Authorize(Roles = "Admins")]

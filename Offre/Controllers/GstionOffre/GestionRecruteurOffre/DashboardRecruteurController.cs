@@ -1,4 +1,5 @@
-﻿using Offre.Models;
+﻿using Microsoft.AspNet.Identity;
+using Offre.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -24,27 +25,31 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
 
         public ActionResult Index()
         {
-            var list = (from jobs in db.Jobs
-                        join user in db.Users
-                        on jobs.Userid equals user.Id
-                        where jobs.Userid == user.Id
-                        select jobs).ToList();
+            var UserId = User.Identity.GetUserId();
+            var list = db.Jobs
+                .Where(p => p.Userid == UserId)
+                .ToList();
             return View(list);
         }
 
+        public ActionResult Condidats()
+        {
+            return View();
+        }
+
         // GET: Recruteur/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Condidats(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Job job = db.Jobs.Find(id);
-            if (job == null)
-            {
-                return HttpNotFound();
-            }
-            return View(job);
+
+            var JobId = (int)Session["Jobid"];
+            var list = db.ApplyForJob1
+                .Where(p => p.Jobid == JobId)
+                .ToList();
+            return View(list);
         }
 
 
@@ -106,7 +111,7 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
         }
 
         // POST: Jobs/Delete/5
-        
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -116,5 +121,31 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+
+
+        public ActionResult DownloadFile(int fileId)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var file = context.ApplyForJob1.FirstOrDefault(f => f.Id == fileId);
+                if (file != null)
+                {
+                    // Prepare the file for download
+                    string filePath = file.UploadFile; // Retrieve the file path from the database
+                    string contentType = MimeMapping.GetMimeMapping(filePath); // Determine the file's content type
+
+                    // Return the file as a response
+                    return File(filePath, contentType, file.UploadFile);
+                }
+                else
+                {
+                    // File not found, handle the error
+                    return HttpNotFound();
+                }
+            }
+        }
+
     }
 }

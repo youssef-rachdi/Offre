@@ -200,7 +200,7 @@
       color: #fff; }
 
 /*  Larger Screen Styling */
-@media (min-width: 564px) {
+@@media (min-width: 564px) {
   .daterangepicker {
     width: auto; }
     .daterangepicker .ranges ul {
@@ -258,7 +258,7 @@
       .daterangepicker.rtl .ranges, .daterangepicker.rtl .calendar {
         text-align: right;
         float: right; } }
-@media (min-width: 730px) {
+@@media (min-width: 730px) {
   .daterangepicker .ranges {
     width: auto; }
   .daterangepicker.ltr .ranges {

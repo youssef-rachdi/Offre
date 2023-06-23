@@ -156,6 +156,8 @@
     <Content Include="Image\logo2.png" />
     <Content Include="Image\logo22.jpg" />
     <Content Include="Image\logoo.jpg" />
+    <Content Include="Image\MicrosoftTeams-image %281%29.png" />
+    <Content Include="Image\MicrosoftTeams-image.png" />
     <Content Include="Image\pexels22.jpg" />
     <Content Include="Image\pexels33.jpg" />
     <Content Include="Login_v3\css\main.css" />
@@ -285,6 +287,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\GstionOffre\GestionAdminOffre\DashboardAdmintController.cs" />
     <Compile Include="Controllers\GstionOffre\GestionRecruteurOffre\DashboardRecruteurController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
@@ -393,6 +396,9 @@
     <Content Include="Views\DashboardRecruteur\Details.cshtml" />
     <Content Include="Views\DashboardRecruteur\Delete.cshtml" />
     <Content Include="Views\DashboardRecruteur\Edit.cshtml" />
+    <Content Include="Views\Home\Searsh.cshtml" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\DashboardAdmint\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

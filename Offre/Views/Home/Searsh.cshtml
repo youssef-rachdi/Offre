@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Offre.Models.Job>
+
+@{
+    ViewBag.Title = "Searsh";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Search results for</h2>
+
+<section>
+    <div class="container_job">
+        <div class="row">
+            @foreach (var subItem in Model)
+            {
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="~/Uploads/@subItem.JobImage" class="card-img-top" alt="Image">
+
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => subItem.JobTitle)</h5>
+                            <p class="card-text">
+                                @Html.DisplayFor(modelItem => subItem.JobContent)
+                            </p>
+                            @Html.ActionLink("détails", "Details", new { jobid = subItem.Id }, new { style = "background-color:#2977ff; text-decoration:none; padding:4px 15px 4px 15px;color:white;" })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

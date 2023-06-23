@@ -99,5 +99,11 @@ namespace Offre.Controllers
                 return View(role);
             }
         }
+
+        public ActionResult ss()
+        {
+                return View();
+            
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace WebApplication2.Controllers
         {
             return View(db.Categories.ToList());
         }
+
         public ActionResult Details(int jobid)
         {
             var job = db.Jobs.Find(jobid);
@@ -71,6 +72,30 @@ namespace WebApplication2.Controllers
             
             return View();
         }
+
+
+        [HttpGet]
+        public ActionResult Searsh()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Searsh(string SearchName)
+        {
+            var result = db.Jobs.Where(
+                a=>a.JobTitle.Contains(SearchName)
+                        || a.JobContent.Contains(SearchName)
+                        || a.Category.CategoryName.Contains(SearchName)
+                        || a.Category.CatregoryDescription.Contains(SearchName)
+            ).ToList();
+            return View(result);
+        }
+
+
+
+
+
 
         public ActionResult About()
         {

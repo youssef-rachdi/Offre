@@ -4,24 +4,24 @@
 }
 
 <style>
-    #h1{
-        padding:32px;
-        background-color:deepskyblue;
-        margin:20px 0px 40px 0px;
-        display:flex;
-        justify-content:center;
+    #h1 {
+        padding: 32px;
+        background-color: deepskyblue;
+        margin: 20px 0px 40px 0px;
+        display: flex;
+        justify-content: center;
     }
-    
 </style>
 @*<div class="jumbotron">
-    <h1 class="col-md-12" id="h1">Bienvenue sur le platform de les offre d'emploi</h1>
-</div>*@
+        <h1 class="col-md-12" id="h1">Bienvenue sur le platform de les offre d'emploi</h1>
+    </div>*@
 
 
 @foreach (var item in Model)
 {
     <h3>@Html.DisplayFor(modelItem => item.CategoryName)</h3>
     <p>@Html.DisplayFor(modelItem => item.CatregoryDescription)</p>
+
 
     <section>
         <div class="container_job">
@@ -31,6 +31,7 @@
                     <div class="col-md-3">
                         <div class="card" style="width: 18rem;">
                             <img src="~/Uploads/@subItem.JobImage" class="card-img-top" alt="Image">
+
                             <div class="card-body">
                                 <h5 class="card-title">@Html.DisplayFor(modelItem => subItem.JobTitle)</h5>
                                 <p class="card-text">
@@ -45,3 +46,6 @@
         </div>
     </section>
 }
+
+
+@*onerror="this.src ='~/Uploads/offredemploi_.jpg'"*@

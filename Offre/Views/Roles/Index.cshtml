@@ -1,5 +1,13 @@
 ﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Sidebar.cshtml";
+}
+
+<h2>La Liste de Role</h2>
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -13,13 +21,13 @@
             </p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
+    @*<div class="row">*@
+        <div class="col-md-6" class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>@Html.DisplayNameFor(model => model.Name)</th>
-                        <th></th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,5 +47,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    @*</div>*@
 </div>

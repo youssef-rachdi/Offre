@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Web.Mvc;
+using WebApplication2.Models;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace Offre.Controllers.GstionOffre.GestionAdminOffre
 {
     public class DashboardAdmintController : Controller
     {
+       
         // GET: DashboardAdmint
         public ActionResult Index()
         {
@@ -85,5 +84,10 @@ namespace Offre.Controllers.GstionOffre.GestionAdminOffre
                 return View();
             }
         }
+
+
+
+
+
     }
 }

@@ -1,0 +1,45 @@
+﻿@model List<Offre.Models.MyViewModel>
+@{
+    ViewBag.Title = "Statistique";
+    Layout = "~/Views/Shared/_Sidebar.cshtml";
+}
+
+
+<h2>Statistique</h2>
+@*<div class="container">
+    <div class="col-md-4">
+        <div class="crads" style="height:200px; width:500px; background-color:mediumpurple; border-radius:10px;align-items:center; justify-content:center;">
+            <h2>Total de l'offres' est: @ViewBag.JobCount</h2>
+        </div>
+    </div>
+    </div>*@
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;cursor:default; color:#ffffff; background-color: dodgerblue; border-radius: 10px; align-items: center;">
+
+                <div class="card-body">
+                    <h5 class="card-title">Le @item.Category</h5>
+                    <p class="card-text">
+                        Total de les offres: @item.CategoryCount
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    }
+    <div class="col-md-3">
+        <div class="card" style="width: 18rem; cursor: default; color: #ffffff; background-color: dodgerblue; border-radius: 10px; align-items: center;">
+
+            <div class="card-body">
+                <h5 class="card-title">Le secteur prive et public </h5>
+                <p class="card-text">
+                    Total de les offres: @ViewBag.JobCount
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

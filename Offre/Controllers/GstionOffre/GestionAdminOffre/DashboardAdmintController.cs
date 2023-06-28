@@ -1,12 +1,19 @@
 ﻿using System.Web.Mvc;
 using WebApplication2.Models;
 using System.Linq;
+using Microsoft.AspNet.Identity;
+using Offre.Models;
+using System.Data.Entity;
+using System.Threading.Tasks;
+using System.Web.Configuration;
+using WebApplication2;
 
 namespace Offre.Controllers.GstionOffre.GestionAdminOffre
 {
     public class DashboardAdmintController : Controller
     {
-       
+
+        ApplicationDbContext db;
         // GET: DashboardAdmint
         public ActionResult Index()
         {
@@ -14,10 +21,28 @@ namespace Offre.Controllers.GstionOffre.GestionAdminOffre
         }
 
         // GET: DashboardAdmint/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Statistique()
         {
-            return View();
+            using (var db1 = new ApplicationDbContext())
+            {
+                int jobCount = db1.Jobs.Count();
+                ViewBag.JobCount = jobCount;
+            }
+            
+
+            var db = new ApplicationDbContext();
+            var counts = db.Jobs.Include(p => p.Category)
+                                 .GroupBy(p => p.Category.CategoryName)
+                                 .Select(g => new MyViewModel
+                                 {
+                                     Category = g.Key,
+                                     CategoryCount = g.Count()
+                                 }).ToList();
+
+
+            return View(counts);
         }
+
 
         // GET: DashboardAdmint/Create
         public ActionResult Create()
@@ -84,10 +109,6 @@ namespace Offre.Controllers.GstionOffre.GestionAdminOffre
                 return View();
             }
         }
-
-
-
-
 
     }
 }

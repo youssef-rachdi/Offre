@@ -110,6 +110,20 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
             return View(job);
         }
 
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Job job = db.Jobs.Find(id);
+            if (job == null)
+            {
+                return HttpNotFound();
+            }
+            return View(job);
+        }
+
         // POST: Jobs/Delete/5
 
         [HttpPost, ActionName("Delete")]

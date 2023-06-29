@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Offre.Models.Job>
+
+@{
+    ViewBag.Title = "Indexjob";
+    Layout = "~/Views/Shared/_Sidebar.cshtml";
+}
+
+
+<style>
+    .button-63 {
+        align-items: center;
+        background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+        border: 0;
+        border-radius: 8px;
+        box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        display: flex;
+        font-family: Phantomsans, sans-serif;
+        font-size: 20px;
+        justify-content: center;
+        line-height: 1em;
+        max-width: 50%;
+        min-width: 140px;
+        padding: 19px 24px;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: .5s;
+    }
+
+        .button-63:active,
+        .button-63:hover {
+            outline: 0;
+            box-shadow: 5px 5px 15px #5B42F3;
+            margin-top: -5px;
+            color: #fff;
+        }
+
+    @@edia (min-width: 768px) {
+        .button-63 {
+            font-size: 24px;
+            min-width: 396px;
+        }
+    }
+
+    td {
+        text-align: center;
+        justify-content: center;
+    }
+</style>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Jobs", null, new { @class = "button-63" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobImage)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobContent)
+            </td>
+            <td>
+                <img src="~/Uploads/@Html.DisplayFor(modelItem => item.JobImage)" onerror="this.src='~/Image/user.jpg'" style="width:100px;height:100px;" />
+            </td>
+            <td style="width:300px;">
+                @Html.ActionLink("Edit", "Editjob", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Detailsjob", new { id = item.Id }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Deletejob", new { id = item.Id }, new { @class = "btn btn-danger" })
+
+
+            </td>
+        </tr>
+    }
+
+</table>

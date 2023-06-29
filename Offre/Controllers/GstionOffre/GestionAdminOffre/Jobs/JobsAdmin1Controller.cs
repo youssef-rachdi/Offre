@@ -12,38 +12,35 @@ using WebApplication2.Models;
 
 namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
 {
-    [Authorize(Roles = "Recruteur,Admins")]
-    public class JobsAdminController : Controller
+    //[Authorize(Roles = "Recruteur,Admins")]
+    public class JobsAdmin1Controller : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
-        public JobsAdminController()
-        {
-        }
-
         // GET: Recruteur
 
-        public ActionResult Home()
+        public ActionResult home()
         {
             return View();
         }
 
-        public ActionResult Index()
+        public ActionResult Indexjob()
         {
-            var UserId = User.Identity.GetUserId();
-            var list = db.Jobs
-                .Where(p => p.Userid == UserId)
-                .ToList();
-            return View(list);
+            //var UserId = User.Identity.GetUserId();
+            //var list = db.Jobs
+            //    .Where(p => p.Userid == UserId)
+            //    .ToList();
+            //return View(list);
+            var jobs = db.Jobs.ToList();
+            return View(jobs);
         }
 
-        public ActionResult Condidats()
+        public ActionResult Condidatsjob()
         {
             return View();
         }
 
         // GET: Recruteur/Details/5
-        public ActionResult Condidats(int? id)
+        public ActionResult Condidatsjob(int? id)
         {
             if (id == null)
             {
@@ -59,7 +56,7 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
 
 
         // GET: Recruteur/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Editjob(int? id)
         {
             if (id == null)
             {
@@ -79,7 +76,7 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Job job, HttpPostedFileBase Upload)
+        public ActionResult Editjob(Job job, HttpPostedFileBase Upload)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +98,7 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
         }
 
         // GET: Recruteur/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Deletejob(int? id)
         {
             if (id == null)
             {
@@ -115,7 +112,7 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
             return View(job);
         }
 
-        public ActionResult Details(int? id)
+        public ActionResult Detailsjob(int? id)
         {
             if (id == null)
             {
@@ -133,7 +130,7 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmedjob(int id)
         {
             Job job = db.Jobs.Find(id);
             db.Jobs.Remove(job);
@@ -144,7 +141,7 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
 
 
 
-        public ActionResult DownloadFile(int fileId)
+        public ActionResult DownloadFilejob(int fileId)
         {
             using (var context = new ApplicationDbContext())
             {

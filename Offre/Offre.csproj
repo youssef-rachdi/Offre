@@ -288,6 +288,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\GstionOffre\GestionAdminOffre\DashboardAdmintController.cs" />
+    <Compile Include="Controllers\GstionOffre\GestionAdminOffre\Jobs\JobsAdmin1Controller.cs" />
     <Compile Include="Controllers\GstionOffre\GestionRecruteurOffre\DashboardRecruteurController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
@@ -402,6 +403,11 @@
     <Content Include="Views\DashboardAdmint\Index.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\DashboardAdmint\Statistique.cshtml" />
+    <Content Include="Views\JobsAdmin1\Indexjob.cshtml" />
+    <Content Include="Views\JobsAdmin1\Editjob.cshtml" />
+    <Content Include="Views\JobsAdmin1\Detailsjob.cshtml" />
+    <Content Include="Views\JobsAdmin1\Deletejob.cshtml" />
+    <Content Include="Views\JobsAdmin1\home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

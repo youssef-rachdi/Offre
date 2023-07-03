@@ -36,5 +36,6 @@ namespace WebApplication2.Models
 
         public System.Data.Entity.DbSet<Offre.Models.ApplyForJob1> ApplyForJob1 { get; set; }
 
+        public System.Data.Entity.DbSet<Offre.Models.ConadidatsViewModel> ConadidatsViewModels { get; set; }
     }
 }

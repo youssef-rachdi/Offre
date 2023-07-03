@@ -7,7 +7,7 @@
 
 
 
-    <style>
+<!--<style>
         @@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
 
@@ -26,9 +26,9 @@
             overflow: hidden;
         }
 
-        
 
-           
+
+
 
         .product-content {
             padding: 2rem 1rem;
@@ -70,7 +70,7 @@
                 opacity: 0.9;
             }
 
-            
+
 
 
         .product-detail h3 {
@@ -165,17 +165,17 @@
 
 
 <div class="container">
-    <div class="card">
-        <!-- card left -->
-        <div class="product-imgs">
-            <div class="img-display">
-                <div class="img-showcase">
-                    <img src="~/Uploads/@Html.DisplayFor(Model=>Model.JobImage)" alt="Job image">
-                </div>
-            </div>
+    <div class="card">-->
+<!-- card left -->
+<!--<div class="product-imgs">
+    <div class="img-display">
+        <div class="img-showcase">
+            <img src="~/Uploads/@Html.DisplayFor(Model=>Model.JobImage)" alt="Job image">
         </div>
-        <!-- card right -->
-        <div class="product-content">
+    </div>
+</div>-->
+<!-- card right -->
+<!--<div class="product-content">
             <h2 class="product-title">@Html.DisplayFor(model => model.JobTitle)</h2>
 
 
@@ -199,4 +199,53 @@
 
         </div>
     </div>
+</div>-->
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobImage)
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Html.DisplayFor(Model=>Model.JobImage)" width="100px" height="100px" />
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Condidat", "Condidats", "DashboardRecruteur", null, new { style = "background-color:black; text-decoration:none; padding:4px;color:white;" })
+        </div>
+    }
 </div>

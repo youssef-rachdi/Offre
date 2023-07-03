@@ -13,13 +13,9 @@ using WebApplication2.Models;
 namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
 {
     [Authorize(Roles = "Recruteur,Admins")]
-    public class JobsAdminController : Controller
+    public class DashboardRecruteurController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
-        public JobsAdminController()
-        {
-        }
 
         // GET: Recruteur
 
@@ -45,16 +41,30 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
         // GET: Recruteur/Details/5
         public ActionResult Condidats(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
 
-            var JobId = (int)Session["Jobid"];
-            var list = db.ApplyForJob1
-                .Where(p => p.Jobid == JobId)
-                .ToList();
-            return View(list);
+            //var JobId = (int)Session["Jobid"];
+            //var list = db.ApplyForJob1
+            //    .Where(p => p.Jobid == JobId)
+            //    .ToList();
+            //return View(list);
+            //var JobId = (int)Session["Jobid"];
+            //var list = db.ApplyForJob1
+            //    .Where(p => p.Jobid == JobId)
+            //    .Select(p => new ConadidatsViewModel
+            //    {
+            //        Id = p.Id,
+            //        Message = p.Message,
+            //        UploadFile = p.UploadFile,
+            //        ApplyDate = p.ApplyDate
+            //        // Map other properties as needed
+            //    })
+            //    .ToList();
+            //return View(list);
+            return View();
         }
 
 

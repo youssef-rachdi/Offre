@@ -51,7 +51,7 @@
                         </span>
 
                         <span class="login100-form-title p-b-34 p-t-27">
-                            Log in
+                            Connexion
                         </span>
 
                         <div class="wrap-input100 validate-input" data-validate="Enter username">
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate="Enter password">
-                            @Html.PasswordFor(m => m.Password, new { @type = "password", @name = "pass", @id = "typePasswordX", @class = "input100", @placeholder = " Password" })
+                            @Html.PasswordFor(m => m.Password, new { @type = "password", @name = "pass", @id = "typePasswordX", @class = "input100", @placeholder = " Mot de passe" })
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                             @*<input class="input100" type="password" name="pass" placeholder="Password">*@
                             <span class="focus-input100" data-placeholder="&#xf191;"></span>
@@ -77,13 +77,13 @@
 
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn">
-                                Login
+                                Se Connecter
                             </button>
                         </div>
 
                         <div class="text-center p-t-90">
                             <a class="txt1" href="">
-                                don't have account? @Html.ActionLink("Sign up", "Register", "Account", null,new { @style = "text-decoration:none; color:white; background-color:transparent;" })
+                                 @Html.ActionLink("S'inscrire?", "Register", "Account", null, new { @style = "text-decoration:none; color:white; background-color:transparent;" })
                             </a>
                         </div>
                     </form>

@@ -429,6 +429,7 @@
     <Content Include="Views\JobsAdmin\Home.cshtml" />
     <Content Include="Views\DashboardRecruteur\home.cshtml" />
     <Content Include="Views\Condidats\Index.cshtml" />
+    <Content Include="Views\Shared\_MenuDash.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

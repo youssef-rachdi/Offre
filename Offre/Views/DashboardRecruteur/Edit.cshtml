@@ -1,11 +1,9 @@
 ﻿@model Offre.Models.Job
-
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Layout = "~/Views/Shared/_Sidebar.cshtml";
 }
 
-<h2>Edit</h2>
 
 @using (Html.BeginForm("Edit", "Jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {

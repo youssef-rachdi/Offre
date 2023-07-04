@@ -61,9 +61,9 @@
                             Contact Nous
                         </a>
                     </li>
-                    <li class="nav-item">
+                    @*<li class="nav-item">
                         <a class="nav-link" href="#">Catégories</a>
-                    </li>
+                    </li>*@
                 </ul>
                        
                         @using (Html.BeginForm("Searsh", "Home", FormMethod.Post))
@@ -96,15 +96,15 @@
         <div class="contaier">
             <div class="row">
                 <div class="col-md-3">
-                    <h2>About Us</h2>
-                    <p1>Bienvenue sur l'offre, votre première source d'emplois public, privé et offres à l'étranger ...<a href="about.html">Lire la suite...</a></p1>
+                    <h2>À Propos</h2>
+                    <p1>Bienvenue sur l'offre, votre première source d'emplois public, privé et offres à l'étranger ...<a href="~/Home/About">Lire la suite...</a></p1>
                 </div>
                 <div class="col-md-3">
                     <h2>Liens Utiles</h2>
                     <ul>
-                        <li><a href="">Accueil</a></li>
-                        <li><a href="">À Propos</a></li>
-                        <li><a href="">Contact Nous</a></li>
+                        <li><a href="~/Home/Index">Accueil</a></li>
+                        <li><a href="~/Home/About">À Propos</a></li>
+                        <li><a href="~/Home/Contact">Contact Nous</a></li>
                         <li><a href="">Categories</a></li>
 
                     </ul>
@@ -138,7 +138,7 @@
                         </li>
                         <li>
                             <i class="bi bi-envelope"></i>
-                            <a style="color: white;">Rachdiy03@gmail.com</a>
+                            <a style="color: white;">rachdiy03@gmail.com</a>
                         </li>
 
                     </ul>

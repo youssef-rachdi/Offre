@@ -17,4 +17,5 @@ namespace Offre.Models
         public virtual Job Job { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
+
 }

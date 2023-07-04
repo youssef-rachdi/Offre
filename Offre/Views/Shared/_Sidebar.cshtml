@@ -10927,9 +10927,9 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
                             Contact Nous
                         </a>
                     </li>
-                    <li class="nav-item">
+                    @*<li class="nav-item">
                         <a class="nav-link" href="#">Catégories</a>
-                    </li>
+                    </li>*@
                 </ul>
 
                 @using (Html.BeginForm("Searsh", "Home", FormMethod.Post))
@@ -10948,18 +10948,19 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     </nav>
     <div class="d-flex" id="wrapper" style="padding-top:90px;">
         <!-- Sidebar-->
-        <div class="border-end bg-white" id="sidebar-wrapper">
+        <!--<div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light"><a class="sidebar-heading border-bottom bg-light" style="text-decoration:none; font-size:25px;" href="~/DashboardAdmint/Index">Dashboard</a></div>
-            <div class="list-group list-group-flush">
+            <div class="list-group list-group-flush">-->
                 @*<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>*@
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Users</a>
+                <!--<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Users</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="~/Categories/Index">Categories</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="~/Roles/Index">Roles</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="~/DashboardAdmint/Statistique">Statistiques</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="~/JobsAdmin1/home">Offres</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="~/JobsAdmin1/home">Offres</a>-->
                 @*<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>*@
-            </div>
-        </div>
+            <!--</div>
+        </div>-->
+        @Html.Partial("_MenuDash")
         <!-- Page content wrapper-->
         <div id="page-content-wrapper">         
             <!-- Page content-->

@@ -24,7 +24,7 @@ namespace Offre.Controllers
         }
 
         // GET: Jobs/Details/5
-        [Authorize(Roles = "Admins")]
+        [Authorize(Roles = "Recruteur,Admins")]
         public ActionResult Details(int? id)
         {
             if (id == null)

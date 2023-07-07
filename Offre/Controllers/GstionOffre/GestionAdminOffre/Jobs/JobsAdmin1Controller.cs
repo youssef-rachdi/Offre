@@ -12,7 +12,7 @@ using WebApplication2.Models;
 
 namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
 {
-    //[Authorize(Roles = "Recruteur,Admins")]
+    [Authorize(Roles = "Admins")]
     public class JobsAdmin1Controller : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -34,25 +34,25 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
             return View(jobs);
         }
 
-        public ActionResult Condidatsjob()
-        {
-            return View();
-        }
+        //public ActionResult Condidatsjob()
+        //{
+        //    return View();
+        //}
 
         // GET: Recruteur/Details/5
-        public ActionResult Condidatsjob(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+        //public ActionResult Condidatsjob(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
 
-            var JobId = (int)Session["Jobid"];
-            var list = db.ApplyForJob1
-                .Where(p => p.Jobid == JobId)
-                .ToList();
-            return View(list);
-        }
+        //    var JobId = (int)Session["Jobid"];
+        //    var list = db.ApplyForJob1
+        //        .Where(p => p.Jobid == JobId)
+        //        .ToList();
+        //    return View(list);
+        //}
 
 
         // GET: Recruteur/Edit/5
@@ -97,6 +97,19 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
             return View(job);
         }
 
+        public ActionResult Detailsjob(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Job job = db.Jobs.Find(id);
+            if (job == null)
+            {
+                return HttpNotFound();
+            }
+            return View(job);
+        }
         // GET: Recruteur/Delete/5
         public ActionResult Deletejob(int? id)
         {
@@ -112,30 +125,17 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
             return View(job);
         }
 
-        public ActionResult Detailsjob(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Job job = db.Jobs.Find(id);
-            if (job == null)
-            {
-                return HttpNotFound();
-            }
-            return View(job);
-        }
 
         // POST: Jobs/Delete/5
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Deletejob")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmedjob(int id)
         {
             Job job = db.Jobs.Find(id);
             db.Jobs.Remove(job);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Indexjob");
         }
 
 

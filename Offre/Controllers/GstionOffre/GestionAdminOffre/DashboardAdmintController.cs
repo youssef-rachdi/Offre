@@ -10,6 +10,7 @@ using WebApplication2;
 
 namespace Offre.Controllers.GstionOffre.GestionAdminOffre
 {
+    [Authorize(Roles = "Admins")]
     public class DashboardAdmintController : Controller
     {
 

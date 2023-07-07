@@ -21,9 +21,8 @@ namespace Offre.Controllers.GstionOffre.GestionRecruteurOffre
             //    {
             //        Id = p.Id,
             //        Message = p.Message,
-            //        UploadFile = p.UploadFile,
             //        ApplyDate = p.ApplyDate
-            //        
+
             //    })
             //    .ToList();
             //return View(list);

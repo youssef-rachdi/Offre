@@ -89,7 +89,7 @@
                 <img src="~/Uploads/@Html.DisplayFor(modelItem => item.JobImage)" onerror="this.src='~/Image/user.jpg'" style="width:100px;height:100px;" />
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Edit", "Edit", "DashboardRecruteur", new { id = item.Id }, new { @class = "btn btn-primary" })
                 @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
 

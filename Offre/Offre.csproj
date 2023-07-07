@@ -347,17 +347,19 @@
     <Compile Include="Migrations\202307021654151_AddCondidatsViewModel.designer.cs">
       <DependentUpon>202307021654151_AddCondidatsViewModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307050143059_DeleteCondidatViewModel.cs" />
+    <Compile Include="Migrations\202307050143059_DeleteCondidatViewModel.designer.cs">
+      <DependentUpon>202307050143059_DeleteCondidatViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplyForJob1.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\ConadidatsViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MyViewModel.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
-    <Compile Include="Models\StatistiqueViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -428,7 +430,6 @@
     <Content Include="Views\JobsAdmin1\home.cshtml" />
     <Content Include="Views\JobsAdmin\Home.cshtml" />
     <Content Include="Views\DashboardRecruteur\home.cshtml" />
-    <Content Include="Views\Condidats\Index.cshtml" />
     <Content Include="Views\Shared\_MenuDash.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -441,7 +442,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="UploadFile\" />
     <Folder Include="Uploads\" />
-    <Folder Include="Views\Cindidats\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202204041451460_InitialCreate.resx">
@@ -470,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202307021654151_AddCondidatsViewModel.resx">
       <DependentUpon>202307021654151_AddCondidatsViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307050143059_DeleteCondidatViewModel.resx">
+      <DependentUpon>202307050143059_DeleteCondidatViewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
